@@ -8,7 +8,7 @@
 */
 
 error_reporting(0);
-ini_set('date.timezone', 'Europe\Kiev');
+ini_set('date.timezone', 'Europe/Kiev');
 
 // Load composer
 require __DIR__ . '/vendor/autoload.php';
@@ -16,6 +16,33 @@ require __DIR__ . '/vendor/autoload.php';
 $bot_api_key  = '1445268707:AAH-swERjoYIYReMRDjc-WbOJv-ZHQPbITQ';
 $bot_username = 'buhbogdanbot';
 $hook_url     = 'https://shli.pp.ua/bots/buhbot/index.php';
+
+
+
+function dateFormat(string $date, string $format_input = '(Y)m.d H:i'):string
+{
+	$time = strtotime($date);
+	return date($format_input, $time);
+}
+
+
+function allOperation(MySql $db, $chat_id):string 
+{
+	$res = $db->select('`consumption`, `income`, `date`')
+	->where('chat_id', $chat_id);
+	$consumption = 0.0;
+	$income = 0.0;
+	$text = 'Всі Ваші операції:'.PHP_EOL;
+	foreach ($res as $item) {
+		$consumption += (float) $item['consumption'];
+		$income += (float) $item['income'];
+		$date = dateFormat($item['date']);
+		$text .= "-{$item['consumption']}, +{$item['income']}: {$date}".PHP_EOL;
+	}
+	$text .= "Рвзом: -{$consumption}, +{$income}, операцій: ".count($res).'.';
+	return $text;
+}
+
 
 
 function report(MySql $db):string
@@ -34,8 +61,13 @@ function report(MySql $db):string
 
 
 function help():string{
-	return "Команда не коректна, пишіть +<cума>, або -<cума>.\n"
-		."Сторінка: https://github.com/BKarpow/telegram-buh-bot .";
+	$t = "/start - Початок роботи".PHP_EOL;
+	$t .= "/report - показати суму ща сьогодні".PHP_EOL;
+	$t .= "/all - показати всі операції".PHP_EOL;
+	$t .= "/all_day - всі операції за сьогодні".PHP_EOL;
+	$t .= "Команда не коректна, пишіть +<cума>, або -<cума>.\n"
+		."Автор: Богдан Карпов, @BogdanKarpov .";
+		return $t;
 }
 
 
@@ -56,13 +88,30 @@ try{
 	}
 	switch ($text) {
 		case '/start':
-			$content = array('chat_id' => $chat_id, 'text' => 'Бот запущено. Ви ' . $username);
+			$content = array('chat_id' => $chat_id, 'text' => help() );
 			$telegram->sendMessage($content);
 			break;
 		case '/report':
 			$telegram->sendMessage(['chat_id' => $chat_id, 'text' => report($db)]);
 			break;
-		
+		case '/all':
+			$telegram->sendMessage(['chat_id' => $chat_id, 'text' => allOperation($db, $chat_id)]);
+			break;
+		case '/all_day':
+			$res = $db->getFromThisDay(" `chat_id` = '{$chat_id}'");
+			$date = date('d.m.Y');
+			$consumption = 0.0;
+			$income = 0.0;
+			$text = 'За сьогодні '.$date.':'.PHP_EOL;
+			foreach ($res as $item) {
+				$consumption += (float) $item['consumption'];
+				$income += (float) $item['income'];
+				$d = dateFormat($item['date'], 'H:i:s');
+				$text .= "-{$item['consumption']}грн, +{$item['income']}грн: {$d}".PHP_EOL;
+			}
+			$text .= "Рвзом: -{$consumption}грн, +{$income}грн, операцій: ".count($res).'.';
+			$telegram->sendMessage(['chat_id' => $chat_id, 'text' => $text]);
+			break;
 		default:
 			if (preg_match('#^(\-|\+)([\d\.]+?)$#si', trim($text), $result)){
 				if ($result[1] == '-'){

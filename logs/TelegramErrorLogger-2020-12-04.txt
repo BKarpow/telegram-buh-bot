@@ -55,3 +55,124 @@ ref.text= Ви новий користувач.
 #3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(51): Telegram->sendMessage()
 #4 {main}
 
+============[Date]============
+[ 2020-12-04 16:18:08  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= Ви новий користувач.
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(73): Telegram->sendMessage()
+#4 {main}
+
+============[Date]============
+[ 2020-12-04 16:18:09  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= Команда не коректна, пишіть +<cума>, або -<cума>.
+Сторінка: https://github.com/BKarpow/telegram-buh-bot .
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(110): Telegram->sendMessage()
+#4 {main}
+
+============[Date]============
+[ 2020-12-04 16:28:26  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= Ви новий користувач.
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(82): Telegram->sendMessage()
+#4 {main}
+
+============[Date]============
+[ 2020-12-04 16:28:27  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= Команда не коректна, пишіть +<cума>, або -<cума>.
+Сторінка: https://github.com/BKarpow/telegram-buh-bot .
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(119): Telegram->sendMessage()
+#4 {main}
+
+============[Date]============
+[ 2020-12-04 16:42:38  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= Ви новий користувач.
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(87): Telegram->sendMessage()
+#4 {main}
+
+============[Date]============
+[ 2020-12-04 16:42:38  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.text= /start - Початок роботи
+/report - показати суму ща сьогодні
+/all - показати всі операції
+/all_day - всі операції за сьогодні
+Команда не коректна, пишіть +<cума>, або -<cума>.
+Автор: Богдан Карпов, @BogdanKarpov .
+
+
+============[Trace]===========
+#0 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(3201): TelegramErrorLogger::log()
+#1 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(111): Telegram->sendAPIRequest()
+#2 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\vendor\eleirbag89\telegrambotphp\Telegram.php(196): Telegram->endpoint()
+#3 F:\SERVER_ONE\OpenServer\domains\telbot.loc.ua\index.php(139): Telegram->sendMessage()
+#4 {main}
+
