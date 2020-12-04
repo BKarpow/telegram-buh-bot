@@ -1,0 +1,19 @@
+ {
+    "name": "telegram/buhbot",
+    "description": "This telegram bot",
+    "type": "project",
+    "autoload":{
+        "files": ["lib/class/mysql/mysql.php"]
+    },
+    "require": {
+        "eleirbag89/telegrambotphp": "^1.3"
+    },
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Bogdan",
+            "email": "69055164+BKarpow@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
