@@ -22,6 +22,7 @@ $hook_url     = 'https://shli.pp.ua/bots/buhbot/index.php';
 function dateFormat(string $date, string $format_input = '(Y)m.d H:i'):string
 {
 	$time = strtotime($date);
+	$time = (int)$time + 7200; //+02:00
 	return date($format_input, $time);
 }
 

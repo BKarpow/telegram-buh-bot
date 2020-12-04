@@ -140,7 +140,7 @@ final class MySql extends ConfigMySql
 		$wO = date('Y-m-d') . ' 00:00:00';
 		$wD = date('Y-m-d') . ' 23:59:59';
 		$w = " WHERE `{$date_column}` > '{$wO}' AND `{$date_column}` < '{$wD}' AND " . $where;
-		$sql = "SELECT {$this->select} FROM `{$this->table}` ".$w;
+		$sql = "SELECT {$this->select} FROM `{$this->table}`  ".$w." ORDER BY `{$date_column}` DESC ";
 		return $this->q($sql);
 	}
 
