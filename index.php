@@ -4,6 +4,7 @@
 Простий бот для ведення обліку доходів, розходів.
 @author Bogdan Karpow <xymerone@gmail.com>
 @version 1.0(beta)
+@url: https://github.com/BKarpow/telegram-buh-bot
 */
 
 error_reporting(0);
@@ -33,7 +34,8 @@ function report(MySql $db):string
 
 
 function help():string{
-	return "Команда не коректна, пишіть +<cума>, або -<cума>.";
+	return "Команда не коректна, пишіть +<cума>, або -<cума>.\n"
+		."Сторінка: https://github.com/BKarpow/telegram-buh-bot .";
 }
 
 
