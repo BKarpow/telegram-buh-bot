@@ -13,16 +13,16 @@ ini_set('date.timezone', 'Europe/Kiev');
 // Load composer
 require __DIR__ . '/vendor/autoload.php';
 
-$bot_api_key  = '1445268707:AAH-swERjoYIYReMRDjc-WbOJv-ZHQPbITQ';
-$bot_username = 'buhbogdanbot';
-$hook_url     = 'https://shli.pp.ua/bots/buhbot/index.php';
+$bot_api_key  = file_get_contents(__DIR__ .'/.token'); // файл з токеном потрібно створити в корені
+$bot_username = '';
+$hook_url     = '';
 
 
 
 function dateFormat(string $date, string $format_input = '(Y)m.d H:i'):string
 {
 	$time = strtotime($date);
-	$time = (int)$time + 7200; //+02:00
+	// $time = (int)$time + 7200; //+02:00
 	return date($format_input, $time);
 }
 

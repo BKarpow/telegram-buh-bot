@@ -1,3 +1,7 @@
 /vendor
 /logs
 /lib/mysql/ConfigMySql.php
+/lib/class/mysql/ConfigMySql.php
+lib/class/mysql/ConfigMySql.php
+.token
+/.token
