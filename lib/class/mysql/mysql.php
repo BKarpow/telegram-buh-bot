@@ -172,6 +172,18 @@ final class MySql extends ConfigMySql
 
 
 	/**
+	* 	Видаляє запис по умові 
+	* @param string $where
+	* @return mixed
+	*/
+	public function delete(string $where)
+	{
+		if (empty($this->table)) $this->exception("Empty table name! Usign method MySql::setTable()", 5);
+		return $this->q("DELETE FROM `{$this->table}` WHERE ".$where);
+	}
+
+
+	/**
 	* Мето для опрацювання помилок в середені коду
 	* @param string $message - Error message
 	* @param int $code - Error code

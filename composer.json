@@ -3,7 +3,7 @@
     "description": "This telegram bot",
     "type": "project",
     "autoload":{
-        "files": ["lib/class/mysql/mysql.php"]
+        "files": ["lib/class/mysql/mysql.php", "lib/function/core.php"]
     },
     "require": {
         "eleirbag89/telegrambotphp": "^1.3"
