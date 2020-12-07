@@ -7,7 +7,7 @@
 @url: https://github.com/BKarpow/telegram-buh-bot
 */
 
-error_reporting(0);
+// error_reporting(0);
 ini_set('date.timezone', 'Europe/Kiev');
 
 // Load composer
@@ -16,6 +16,7 @@ require __DIR__ . '/vendor/autoload.php';
 $bot_api_key  = file_get_contents(__DIR__ .'/.token'); // файл з токеном потрібно створити в корені
 $bot_username = '';
 $hook_url     = '';
+
 
 
 
@@ -71,6 +72,27 @@ function help():string{
 		return $t;
 }
 
+function save_result(bool $income , $value, MySql $db, Telegram $telegram)
+{
+	global $chat_id, $username;
+	$arr = [
+		'user_name' => $username,
+		'chat_id' => $chat_id,
+		'description' => "BETA TEST"
+	];
+	// file_put_contents('.log', var_export($arr, 1), FILE_APPEND);
+	
+	if ($income){
+		$arr['income'] = $value;
+		$arr['consumption'] = 0.0;
+	}else{
+		$arr['income'] = 0.0;
+		$arr['consumption'] = $value;
+	}
+	$db->insert($arr);
+	$telegram->sendMessage(['chat_id' => $chat_id, 'text' => report($db)]);
+}
+
 
 
 
@@ -78,6 +100,7 @@ $telegram = new Telegram($bot_api_key);
 $text = $telegram->Text();
 $username = $telegram->Username();
 $chat_id = $telegram->ChatID();
+
 
 try{
 	$db = new MySql('buhbase');
@@ -116,26 +139,14 @@ try{
 		default:
 			if (preg_match('#^(\-|\+)([\d\.]+?)$#si', trim($text), $result)){
 				if ($result[1] == '-'){
-					$db->insert([
-						'user_name' => $username,
-						'chat_id' => $chat_id,
-						'description' => "{$chat_id}: {$username}",
-						'income' => 0,
-						'consumption' => (float) $result[2]
-					]);
-					$telegram->sendMessage(['chat_id' => $chat_id, 'text' => report($db)]);
+					save_result(false, (float) $result[2], $db, $telegram);
 				}elseif($result[1] == '+'){
-					$db->insert([
-						'user_name' => $username,
-						'chat_id' => $chat_id,
-						'description' => "{$chat_id}: {$username}",
-						'income' => (float) $result[2],
-						'consumption' => 0
-					]);
-					$telegram->sendMessage(['chat_id' => $chat_id, 'text' => report($db)]);
+					save_result(true, (float) $result[2], $db, $telegram);
 				}else{
 					$telegram->sendMessage(['chat_id' => $chat_id, 'text' => help() ]);
 				}
+			}elseif(preg_match('#^([\d\.]+)$#si', trim($text), $result2) !== false){
+				save_result(false, (float) $result2[1], $db, $telegram);
 			}else{
 				$telegram->sendMessage(['chat_id' => $chat_id, 'text' => help() ]);
 			}

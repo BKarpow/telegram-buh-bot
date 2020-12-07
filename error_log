@@ -1,0 +1,6 @@
+[04-Dec-2020 18:27:29 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
+[04-Dec-2020 18:27:31 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
+[04-Dec-2020 18:27:35 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
+[04-Dec-2020 18:27:43 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
+[04-Dec-2020 18:27:59 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
+[04-Dec-2020 18:28:31 Europe/Kiev] PHP Fatal error:  Cannot redeclare date_format() in /home/dexby101/public_html/bots/buhbot/index.php on line 22
